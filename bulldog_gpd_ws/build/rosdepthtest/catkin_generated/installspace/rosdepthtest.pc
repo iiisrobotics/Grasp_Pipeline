@@ -1,0 +1,8 @@
+prefix=/home/lsj/workspace/bulldog_ws/install
+
+Name: rosdepthtest
+Description: Description of rosdepthtest
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/lsj/workspace/bulldog_ws/install/lib 
+Requires: 
