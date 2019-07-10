@@ -1,13 +1,19 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(mask_rcnn_ros)
 
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs message_generation)
+find_package(catkin REQUIRED COMPONENTS 
+  roscpp 
+  rospy 
+  std_msgs 
+  sensor_msgs 
+  message_generation
+)
 
 catkin_python_setup()
 
 add_message_files(
   FILES
-    Result.msg
+    Detection.msg
 )
 
 add_service_files(
@@ -15,14 +21,15 @@ add_service_files(
     MaskDetect.srv
 )
 
-
 generate_messages(
-  DEPENDENCIES std_msgs sensor_msgs
+  DEPENDENCIES 
+    std_msgs 
+    sensor_msgs
 )
 
-
-
-catkin_package(CATKIN_DEPENDS message_runtime)
+catkin_package(CATKIN_DEPENDS 
+  message_runtime
+)
 
 #############
 ## Install ##

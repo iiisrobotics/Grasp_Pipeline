@@ -1,2 +1,0 @@
-/usr/bin/ar qc libgpg_plot.a  CMakeFiles/gpg_plot.dir/src/gpg/plot.cpp.o
-/usr/bin/ranlib libgpg_plot.a

@@ -1,4 +1,4 @@
-#include <gpd/sequential_importance_sampling.h>
+#include "../../include/gpd/sequential_importance_sampling.h"
 
 
 // methods for sampling from a set of Gaussians

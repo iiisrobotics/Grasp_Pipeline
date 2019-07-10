@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/yee/bulldog_ws/devel/include",
+                "/opt/ros/indigo/include",
+                "/home/yee/bulldog_ws/src/gpd/include",
+                "/home/yee/bulldog_ws/src/robotiq/robotiq_action_server/include",
+                "/home/yee/bulldog_ws/src/robotiq/robotiq_c_model_control/include",
+                "/home/yee/bulldog_ws/src/robotiq/robotiq_ethercat/include",
+                "/home/yee/bulldog_ws/src/robotiq/robotiq_force_torque_sensor/include",
+                "/home/yee/bulldog_ws/src/robotiq/robotiq_s_model_articulated_gazebo_plugins/include",
+                "/home/yee/bulldog_ws/src/robotiq/robotiq_s_model_control/include",
+                "/home/yee/bulldog_ws/src/universal_robot/ur_kinematics/include",
+                "/home/yee/bulldog_ws/src/ur_modern_driver/include",
+                "/usr/include",
+                "/usr/include/pcl-1.7",
+                "/usr/include/eigen3"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

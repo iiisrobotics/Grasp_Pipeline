@@ -1,4 +1,4 @@
-#include <gpd/clustering.h>
+#include "../../include/gpd/clustering.h"
 
 
 std::vector<Grasp> Clustering::findClusters(const std::vector<Grasp>& hand_list, bool remove_inliers)

@@ -34,8 +34,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <arg name="robotiq_grippers_enabled" default="$(optenv ROBOTIQ_GRIPPERS_ENABLED true)"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="/home/lsj/workspace/bulldog_ws/src/bulldog_simulator/bulldog_gazebo/worlds/clearpath_playpen.world"/> <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
-    <!--arg name="world_name" value="$(find gazebo_ros)/worlds/clearpath_playpen.world"/--> <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
+    <arg name="world_name" value="$(find bulldog_gazebo)/worlds/box.world"/> 
+    <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
+    <!-- <arg name="world_name" value="$(find gazebo_ros)/worlds/clearpath_playpen.world"/>  -->
+    <!-- world_name is wrt GAZEBO_RESOURCE_PATH environment variable -->
     <arg name="paused" value="true"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>

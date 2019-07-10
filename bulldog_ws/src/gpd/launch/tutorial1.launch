@@ -1,17 +1,22 @@
 <launch>
-  
+
+  <arg name="device"                     default="0"
+        doc="target device to execute inference. [0:CPU]|1:GPU|2:VPU|3:FPGA" />
+
   <!-- Load hand geometry parameters -->  
   <include file="$(find gpd)/launch/hand_geometry.launch">
     <arg name="node" value="detect_grasps" />
   </include>
-  
+
   <!-- Load classifier parameters -->
-  <include file="$(find gpd)/launch/lenet/ur5_classifier_15channels.launch">
+  <include file="$(find gpd)/launch/caffe/classifier_15channels.launch">
     <arg name="node" value="detect_grasps" />
   </include>
   
 	<node name="detect_grasps" pkg="gpd" type="detect_grasps" output="screen">
-    
+
+    <param name="device" type="int" value="$(arg device)" />
+
     <!-- If sequential importance sampling is used (default: false) -->
     <param name="use_importance_sampling" value="false" />
         
@@ -50,13 +55,6 @@
     <param name="filter_grasps" value="false" /> <!-- on workspace and robot hand aperture -->
     <rosparam param="workspace_grasps"> [0.55, 1.0, -0.41, 0.03, -0.29, 1.0] </rosparam>
     <param name="filter_half_antipodal" value="false"/> <!-- on half antipodal -->
-    
-    <!-- Filtering of grasps which are too low on (i.e. too close to) table -->
-    <param name="filter_table_side_grasps" value="false" />
-    <rosparam param="vertical_axis"> [0, 0, 1] </rosparam>
-    <param name="angle_thresh" value="0.1" />
-    <param name="table_height" value="0.0" />
-    <param name="table_thresh" value="0.05" />
     
     <!-- Grasp image creation -->
     <param name="create_image_batches" value="false" /> <!-- creates grasp images in batches (less memory usage) -->

@@ -1,8 +1,4 @@
 #include <nodes/grasp_detection_server.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl/point_types.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl_conversions/pcl_conversions.h>
 
 
 GraspDetectionServer::GraspDetectionServer(ros::NodeHandle& node)
@@ -36,7 +32,7 @@ GraspDetectionServer::GraspDetectionServer(ros::NodeHandle& node)
 }
 
 
-bool GraspDetectionServer::detectGrasps(gpd::detect_grasps::Request& req, gpd::detect_grasps::Response& res)
+bool GraspDetectionServer::detectGrasps(gpd::DetectGrasps::Request& req, gpd::DetectGrasps::Response& res)
 {
   ROS_INFO("Received service request ...");
 
@@ -74,10 +70,6 @@ bool GraspDetectionServer::detectGrasps(gpd::detect_grasps::Request& req, gpd::d
     std::cout << "PC RGBA\n";
     PointCloudRGBA::Ptr cloud(new PointCloudRGBA);
     pcl::fromROSMsg(cloud_sources.cloud, *cloud);
-
-    
-    pcl::io::savePCDFile("/home/lsj/pointcloud.pcd",cloud_sources.cloud);
-    printf("save succ!\n");
 
     // TODO: multiple cameras can see the same point
     Eigen::MatrixXi camera_source = Eigen::MatrixXi::Zero(view_points.cols(), cloud->size());

@@ -18,7 +18,7 @@
 #include <pcl_ros/transforms.h>
 #include <tf/transform_listener.h>
 
-#include <mask_rcnn_ros/Result.h>
+#include <mask_rcnn_ros/Detection.h>
 
 typedef pcl::PointCloud<pcl::PointXYZRGB> PointCloud;
 
@@ -34,7 +34,7 @@ const double camera_fy = 554.254691191187;
 cv_bridge::CvImagePtr color_ptr, depth_ptr;
 cv::Mat color_pic, depth_pic;
 
-mask_rcnn_ros::Result mask_result;
+mask_rcnn_ros::Detection mask_result;
 sensor_msgs::Image mask_image;
 
 void color_Callback(const sensor_msgs::ImageConstPtr& color_msg)
@@ -86,7 +86,7 @@ void depth_Callback(const sensor_msgs::ImageConstPtr& depth_msg)
     cout<<"type of depth_pic's element = "<<depth_pic.type()<<endl;
 }
 
-void mask_Callback(const mask_rcnn_ros::Result::ConstPtr& mask_msg){
+void mask_Callback(const mask_rcnn_ros::Detection::ConstPtr& mask_msg){
    if(mask_msg->masks.size() <= 0){
     cout << "no objects in the result!" << endl;
    }else{
